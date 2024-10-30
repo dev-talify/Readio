@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Readio.Api", "Readio.Api\Readio.Api.csproj", "{6C01F545-C12F-414B-914B-64F752A979E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Readio.Core", "Readio.Core\Readio.Core.csproj", "{317BE8D1-3F8F-423A-BA30-7E9C829626C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Readio.Model", "Readio.Model\Readio.Model.csproj", "{63929637-9A90-44A7-8BEB-A9BA6FAC8F78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Readio.DataAccess", "Readio.DataAccess\Readio.DataAccess.csproj", "{909836D1-80AD-4175-BF65-2E9AD3AD8E6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Readio.Service", "Readio.Service\Readio.Service.csproj", "{EE53EBEF-96A1-488F-8CF0-6B6CFA46DDC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Readio.Api", "Readio.Api\Readio.Api.csproj", "{8C7E4B91-5F7B-46A7-B4BC-8508D3FD8989}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +22,25 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6C01F545-C12F-414B-914B-64F752A979E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C01F545-C12F-414B-914B-64F752A979E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C01F545-C12F-414B-914B-64F752A979E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C01F545-C12F-414B-914B-64F752A979E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317BE8D1-3F8F-423A-BA30-7E9C829626C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317BE8D1-3F8F-423A-BA30-7E9C829626C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317BE8D1-3F8F-423A-BA30-7E9C829626C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317BE8D1-3F8F-423A-BA30-7E9C829626C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63929637-9A90-44A7-8BEB-A9BA6FAC8F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63929637-9A90-44A7-8BEB-A9BA6FAC8F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63929637-9A90-44A7-8BEB-A9BA6FAC8F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63929637-9A90-44A7-8BEB-A9BA6FAC8F78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{909836D1-80AD-4175-BF65-2E9AD3AD8E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{909836D1-80AD-4175-BF65-2E9AD3AD8E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{909836D1-80AD-4175-BF65-2E9AD3AD8E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{909836D1-80AD-4175-BF65-2E9AD3AD8E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE53EBEF-96A1-488F-8CF0-6B6CFA46DDC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE53EBEF-96A1-488F-8CF0-6B6CFA46DDC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE53EBEF-96A1-488F-8CF0-6B6CFA46DDC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE53EBEF-96A1-488F-8CF0-6B6CFA46DDC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C7E4B91-5F7B-46A7-B4BC-8508D3FD8989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C7E4B91-5F7B-46A7-B4BC-8508D3FD8989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C7E4B91-5F7B-46A7-B4BC-8508D3FD8989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C7E4B91-5F7B-46A7-B4BC-8508D3FD8989}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
