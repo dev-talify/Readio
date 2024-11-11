@@ -1,0 +1,6 @@
+@Readio.Api_HostAddress = http://localhost:5291
+
+GET {{Readio.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
