@@ -3,6 +3,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Readio.DataAccess.Author.Abstracts;
+using Readio.DataAccess.Author.Concretes;
 using Readio.DataAccess.Contexts;
 using Readio.DataAccess.Example.Abstracts;
 using Readio.DataAccess.Example.Concretes;
@@ -32,6 +34,7 @@ public static class RepositoryDependencies
         });
 
         services.AddScoped<IExampleRepository,ExampleRepository>();
+        services.AddScoped<IAuthorRepository,AuthorRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
