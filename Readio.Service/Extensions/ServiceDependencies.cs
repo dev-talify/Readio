@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Readio.Service.Author.Abstracts;
 using Readio.Service.Author.Concretes;
 using Readio.Service.Author.Rules;
+using Readio.Service.Book.Abstracts;
+using Readio.Service.Book.Concretes;
+using Readio.Service.Book.Rules;
 using Readio.Service.Example.Abstract;
 using Readio.Service.Example.Concretes;
 using Readio.Service.Example.Rules;
@@ -21,8 +24,10 @@ public static class ServiceDependencies
     {
         services.AddScoped<IExampleService,ExampleService>();
         services.AddScoped<IAuthorService,AuthorService>();
+        services.AddScoped<IBookService,BookService>();
 
         services.AddScoped<AuthorBusinessRules>();
+        services.AddScoped<BookBusinessRules>();
         services.AddScoped<ExampleBusinessRules>();
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly());

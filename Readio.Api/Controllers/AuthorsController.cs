@@ -22,7 +22,7 @@ public class AuthorsController(IAuthorService authorService) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateAuthor([FromBody] CreateAuthorRequest request) => Ok(await authorService
     .CreateAsync(request));
-    [HttpPut("{id:int}")]
+    [HttpPut]
     public async Task<IActionResult> UpdateAuthor([FromBody] UpdateAuthorRequest request) =>
     Ok(await authorService.UpdateAsync(request));
 
