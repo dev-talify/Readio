@@ -21,4 +21,14 @@ public static class Messages
     public const string AllBooksListedMessage = "Tüm kitaplar gösterildi.";
     public const string BookByIdMessage = "İstenilen Id'ye göre kitap gösterildi";
     public const string BookUpdatedMessage = "Kitap güncellendi";
+
+    public const string GenreNameAlreadyExistMessage = "Bu isimle bir kategori zaten mevcut";
+    public const string GenreNotFoundMessage = "Kategori bulunamadı.";
+    public const string GenreAddedMessage = "Kategori eklendi.";
+    public const string GenreDeletedMessage = "Kategori silindi.";
+    public const string AllGenresListedMessage = "Tüm kategoriler gösterildi.";
+    public const string GenreByIdMessage = "İstenilen Id'ye göre kategori gösterildi";
+    public const string GenreUpdatedMessage = "Kategori güncellendi";
+
+
 }

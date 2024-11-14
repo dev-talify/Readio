@@ -13,6 +13,9 @@ using Readio.Service.Book.Rules;
 using Readio.Service.Example.Abstract;
 using Readio.Service.Example.Concretes;
 using Readio.Service.Example.Rules;
+using Readio.Service.Genre.Abstracts;
+using Readio.Service.Genre.Concretes;
+using Readio.Service.Genre.Rules;
 using System.Reflection;
 
 namespace Readio.Service.Extensions;
@@ -25,9 +28,11 @@ public static class ServiceDependencies
         services.AddScoped<IExampleService,ExampleService>();
         services.AddScoped<IAuthorService,AuthorService>();
         services.AddScoped<IBookService,BookService>();
+        services.AddScoped<IGenreService, GenreService>();
 
         services.AddScoped<AuthorBusinessRules>();
         services.AddScoped<BookBusinessRules>();
+        services.AddScoped<GenreBusinessRules>();
         services.AddScoped<ExampleBusinessRules>();
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
