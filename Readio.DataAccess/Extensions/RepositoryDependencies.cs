@@ -10,6 +10,8 @@ using Readio.DataAccess.Book.Concretes;
 using Readio.DataAccess.Contexts;
 using Readio.DataAccess.Example.Abstracts;
 using Readio.DataAccess.Example.Concretes;
+using Readio.DataAccess.Genre.Abstracts;
+using Readio.DataAccess.Genre.Concretes;
 using Readio.DataAccess.Interceptors;
 using Readio.DataAccess.Options;
 using Readio.DataAccess.UnitOfWorks.Abstracts;
@@ -38,6 +40,7 @@ public static class RepositoryDependencies
         services.AddScoped<IExampleRepository,ExampleRepository>();
         services.AddScoped<IAuthorRepository,AuthorRepository>();
         services.AddScoped<IBookRepository,BookRepository>();
+        services.AddScoped<IGenreRepository, GenreRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;

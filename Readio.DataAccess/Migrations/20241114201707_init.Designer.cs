@@ -12,8 +12,8 @@ using Readio.DataAccess.Contexts;
 namespace Readio.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241113120507_add_books")]
-    partial class add_books
+    [Migration("20241114201707_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,6 +100,30 @@ namespace Readio.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ExampleEntity");
+                });
+
+            modelBuilder.Entity("Readio.Model.Genre.Entity.GenreEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genres");
                 });
 #pragma warning restore 612, 618
         }

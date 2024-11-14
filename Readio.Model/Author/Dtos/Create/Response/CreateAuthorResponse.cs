@@ -6,5 +6,6 @@ public sealed record CreateAuthorResponse(
     int Id,
     string Name,
     string? Bio,
-    DateTime CreatedAt);
+    DateTime CreatedAt
+    );
 
