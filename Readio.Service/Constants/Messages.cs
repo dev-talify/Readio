@@ -30,5 +30,11 @@ public static class Messages
     public const string GenreByIdMessage = "İstenilen Id'ye göre kategori gösterildi";
     public const string GenreUpdatedMessage = "Kategori güncellendi";
 
-
+    public const string MemberNameAlreadyExistMessage = "Bu isimle bir üye zaten mevcut";
+    public const string MemberNotFoundMessage = "Üye bulunamadı.";
+    public const string MemberAddedMessage = "Üye eklendi.";
+    public const string MemberDeletedMessage = "Üye silindi.";
+    public const string AllMembersListedMessage = "Tüm Üyeler gösterildi.";
+    public const string MemberByIdMessage = "İstenilen Id'ye göre üye gösterildi";
+    public const string MemberUpdatedMessage = "Üye güncellendi";
 }
