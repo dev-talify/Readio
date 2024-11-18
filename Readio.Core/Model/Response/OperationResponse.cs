@@ -8,6 +8,8 @@ public class OperationResponse<T>
     public string? Message { get; set; }
     public T? Data { get; set; }
 
+    public List<string>? ErrorMessage { get; set; }
+
     public static OperationResponse<T> Success(T data, string message, HttpStatusCode statusCode = HttpStatusCode.OK)
     {
         return new OperationResponse<T>()
@@ -15,6 +17,24 @@ public class OperationResponse<T>
             Data = data,
             Message = message,
             StatusCode = statusCode
+        };
+    }
+    public static OperationResponse<T> Fail(List<string> errorMessage, HttpStatusCode statusCode = HttpStatusCode.BadRequest)
+    {
+        return new OperationResponse<T>()
+        {
+            ErrorMessage = errorMessage,
+            StatusCode = statusCode
+        };
+    }
+
+    public static OperationResponse<T> Fail(string errorMessage, HttpStatusCode statusCode = HttpStatusCode.BadRequest)
+    {
+        return new OperationResponse<T>()
+        {
+            ErrorMessage = [errorMessage],
+            StatusCode = statusCode
+
         };
     }
 }

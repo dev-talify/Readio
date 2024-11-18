@@ -11,11 +11,13 @@ public sealed record BookDto
 
     public BookDto() { }
 
-    public BookDto(Guid id, string title, string description)
+    public BookDto(Guid id, string title, string description, DateTime createdAt,DateTime updatedAt)
     {
         Id = id;
         Title = title;
         Description = description;
+        CreatedAt = createdAt;
+        UpdatedAt = updatedAt;
     }
 }
     

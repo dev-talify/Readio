@@ -1,5 +1,12 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Readio.Api.Middlewares;
+using Readio.Core.Token;
+using Readio.DataAccess.Contexts;
 using Readio.DataAccess.Extensions;
+using Readio.Model.User.Entity;
 using Readio.Service.Extensions;
 using Readio.Service.Filters;
 
@@ -14,9 +21,43 @@ options.Filters.Add<FluentValidationFilter>()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddRepositoryDependencies(builder.Configuration).AddServiceDependencies();
+builder.Services.Configure<CustomTokenOption>(builder.Configuration.GetSection("TokenOption"));
+
+builder.Services.AddRepositoryDependencies(builder.Configuration).AddServiceDependencies(builder.Configuration);
+
+builder.Services.AddIdentity<UserEntity,IdentityRole>(opt =>
+{
+
+    opt.User.RequireUniqueEmail = true;
+    opt.Password.RequireNonAlphanumeric = false;
+
+}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts =>
+{
+    var tokenOptions = builder.Configuration.GetSection("TokenOption").Get<CustomTokenOption>();
+    opts.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+    {
+        NameClaimType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+        ValidIssuer = tokenOptions.Issuer,
+        ValidAudience = tokenOptions.Audience[0], 
+        IssuerSigningKey = SignService.GetSymmetricSecurityKey(tokenOptions.SecurityKey),
+
+        ValidateIssuerSigningKey = true,
+        ValidateAudience = true,
+        ValidateIssuer = true,
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.FromMinutes(5) 
+    };
+});
+
 
 var app = builder.Build();
 
@@ -30,6 +71,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

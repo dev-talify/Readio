@@ -1,5 +1,7 @@
 ﻿
 
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +16,7 @@ using Readio.DataAccess.Interceptors;
 using Readio.DataAccess.Options;
 using Readio.DataAccess.UnitOfWorks.Abstracts;
 using Readio.DataAccess.UnitOfWorks.Concretes;
+using Readio.Model.User.Entity;
 
 namespace Readio.DataAccess.Extensions;
 
@@ -34,6 +37,7 @@ public static class RepositoryDependencies
 
             options.AddInterceptors(new AuditDbContextInterceptor());
         });
+
 
         services.AddScoped<IExampleRepository,ExampleRepository>();
         services.AddScoped<IAuthorRepository,AuthorRepository>();
