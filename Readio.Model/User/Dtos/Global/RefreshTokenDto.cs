@@ -2,5 +2,8 @@
 
 namespace Readio.Model.User.Dtos.Global;
 
-public record RefreshTokenDto(string Token);
+public record RefreshTokenDto
+{
+    public string Token { get; set; }
+}
 

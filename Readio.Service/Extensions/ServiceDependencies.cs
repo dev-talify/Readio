@@ -23,7 +23,7 @@ namespace Readio.Service.Extensions;
 public static class ServiceDependencies
 {
     // service DI kayıtları
-    public static IServiceCollection AddServiceDependencies(this IServiceCollection services)
+    public static IServiceCollection AddServiceDependencies(this IServiceCollection services, ConfigurationManager configuration)
     {
         services.AddScoped<IExampleService,ExampleService>();
         services.AddScoped<IAuthorService,AuthorService>();
