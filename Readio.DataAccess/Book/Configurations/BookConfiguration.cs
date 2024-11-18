@@ -19,6 +19,21 @@ public class BookConfiguration : IEntityTypeConfiguration<BookEntity>
             .IsRequired()                
             .HasMaxLength(2000);
 
-        //navigation property ilişkileri eklenecek
+        builder.Property(b => b.AuthorEntityId).HasColumnName("AuthorId");
+
+        //many to one
+        builder.HasOne(b => b.Author)
+               .WithMany(a => a.Books)
+               .HasForeignKey(b => b.AuthorEntityId)
+               .OnDelete(DeleteBehavior.Restrict);  
+
+        //many to many
+        builder.HasMany(b => b.Genres)
+            .WithMany(g => g.Books)
+            .UsingEntity(j => j.ToTable("BookGenres"));
+
+        builder.Navigation(b => b.Author).AutoInclude();
+        builder.Navigation(b => b.Genres).AutoInclude();
+
     }
 }

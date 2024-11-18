@@ -19,5 +19,14 @@ public class AuthorConfiguration : IEntityTypeConfiguration<AuthorEntity>
 
         builder.Property(a => a.Bio)
                .HasMaxLength(500);
+
+        // one to many
+        builder.HasMany(a => a.Books)
+               .WithOne(b => b.Author)
+               .HasForeignKey(b => b.AuthorEntityId)
+               .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Navigation(a => a.Books).AutoInclude();
+
     }
 }
