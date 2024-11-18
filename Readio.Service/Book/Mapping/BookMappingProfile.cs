@@ -1,9 +1,4 @@
 ﻿using AutoMapper;
-using Readio.Model.Author.Dtos.Create.Request;
-using Readio.Model.Author.Dtos.Create.Response;
-using Readio.Model.Author.Dtos.Global;
-using Readio.Model.Author.Dtos.Update;
-using Readio.Model.Author.Entity;
 using Readio.Model.Book.Dtos.Create.Request;
 using Readio.Model.Book.Dtos.Create.Response;
 using Readio.Model.Book.Dtos.Global;
