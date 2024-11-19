@@ -11,6 +11,7 @@ using Readio.Model.Member.Entity;
 using Readio.Model.User.Entity;
 using System.Reflection;
 using Readio.Model.User.Token;
+using Readio.Model.Comment.Entity;
 
 namespace Readio.DataAccess.Contexts;
 
@@ -22,6 +23,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbCo
     public DbSet<GenreEntity> Genres { get; set; }
     public DbSet<MemberEntity> Members { get; set; }
     public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
+    public DbSet<CommentEntity> Comments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -21,5 +21,13 @@ public class MemberConfiguration : IEntityTypeConfiguration<MemberEntity>
 
         builder.Property(a => a.ProfilePicture)
                .HasMaxLength(255);
+
+        //one to many
+        builder.HasMany(m => m.Comments) 
+           .WithOne(c => c.Member) 
+           .HasForeignKey(c => c.MemberId) 
+           .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Navigation(c => c.Comments).AutoInclude();
     }
 }

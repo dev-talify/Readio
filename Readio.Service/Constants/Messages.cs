@@ -37,4 +37,11 @@ public static class Messages
     public const string AllMembersListedMessage = "Tüm Üyeler gösterildi.";
     public const string MemberByIdMessage = "İstenilen Id'ye göre üye gösterildi";
     public const string MemberUpdatedMessage = "Üye güncellendi";
+
+    public const string CommentNotFoundMessage = "Yorum bulunamadı.";
+    public const string CommentCreatedMessage = "Yorum oluşturuldu.";
+    public const string CommentDeletedMessage = "Yorum silindi.";
+    public const string AllCommentsListedMessage = "Tüm yorumlar gösterildi.";
+    public const string CommentByIdMessage = "İstenilen Id'ye göre yorum gösterildi.";
+    public const string CommentUpdatedMessage = "Yorum güncellendi";
 }

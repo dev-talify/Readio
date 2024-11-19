@@ -32,8 +32,15 @@ public class BookConfiguration : IEntityTypeConfiguration<BookEntity>
             .WithMany(g => g.Books)
             .UsingEntity(j => j.ToTable("BookGenres"));
 
+        // one to many
+        builder.HasMany(b => b.Comments) 
+            .WithOne(c => c.Book) 
+            .HasForeignKey(c => c.BookId) 
+            .OnDelete(DeleteBehavior.Cascade); 
+
         builder.Navigation(b => b.Author).AutoInclude();
         builder.Navigation(b => b.Genres).AutoInclude();
+        builder.Navigation(b=> b.Comments).AutoInclude();
 
     }
 }
