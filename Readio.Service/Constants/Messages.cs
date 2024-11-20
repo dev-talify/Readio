@@ -44,4 +44,11 @@ public static class Messages
     public const string AllCommentsListedMessage = "Tüm yorumlar gösterildi.";
     public const string CommentByIdMessage = "İstenilen Id'ye göre yorum gösterildi.";
     public const string CommentUpdatedMessage = "Yorum güncellendi";
+
+    public const string ChapterNotFoundMessage = "Bölüm bulunamadı.";
+    public const string ChapterCreatedMessage = "Bölüm oluşturuldu.";
+    public const string ChapterDeletedMessage = "Bölüm silindi.";
+    public const string AllChaptersListedMessage = "Tüm bölümler gösterildi.";
+    public const string ChapterByIdMessage = "İstenilen Id'ye göre bölüm gösterildi.";
+    public const string ChapterUpdatedMessage = "Bölüm güncellendi";
 }

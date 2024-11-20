@@ -1,10 +1,6 @@
 ﻿
 
 using Readio.Core.Model.Response;
-using Readio.Model.Book.Dtos.Create.Request;
-using Readio.Model.Book.Dtos.Create.Response;
-using Readio.Model.Book.Dtos.Global;
-using Readio.Model.Book.Dtos.Update;
 using Readio.Model.Comment.Dtos.Create.Request;
 using Readio.Model.Comment.Dtos.Create.Response;
 using Readio.Model.Comment.Dtos.Global;

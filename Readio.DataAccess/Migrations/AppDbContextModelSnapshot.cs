@@ -231,6 +231,81 @@ namespace Readio.DataAccess.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("Readio.Model.Chapter.Entity.ChapterEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ChapterNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("Chapters");
+                });
+
+            modelBuilder.Entity("Readio.Model.Comment.Entity.CommentEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid?>("BookEntityId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MemberId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookEntityId");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("MemberId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("Readio.Model.Example.Entity.ExampleEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -478,9 +553,53 @@ namespace Readio.DataAccess.Migrations
                     b.Navigation("Author");
                 });
 
+            modelBuilder.Entity("Readio.Model.Chapter.Entity.ChapterEntity", b =>
+                {
+                    b.HasOne("Readio.Model.Book.Entity.BookEntity", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("Readio.Model.Comment.Entity.CommentEntity", b =>
+                {
+                    b.HasOne("Readio.Model.Book.Entity.BookEntity", null)
+                        .WithMany("Comments")
+                        .HasForeignKey("BookEntityId");
+
+                    b.HasOne("Readio.Model.Book.Entity.BookEntity", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Readio.Model.Member.Entity.MemberEntity", "Member")
+                        .WithMany("Comments")
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Member");
+                });
+
             modelBuilder.Entity("Readio.Model.Author.Entity.AuthorEntity", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Readio.Model.Book.Entity.BookEntity", b =>
+                {
+                    b.Navigation("Comments");
+                });
+
+            modelBuilder.Entity("Readio.Model.Member.Entity.MemberEntity", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

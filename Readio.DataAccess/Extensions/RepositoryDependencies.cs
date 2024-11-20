@@ -9,6 +9,8 @@ using Readio.DataAccess.Author.Abstracts;
 using Readio.DataAccess.Author.Concretes;
 using Readio.DataAccess.Book.Abstracts;
 using Readio.DataAccess.Book.Concretes;
+using Readio.DataAccess.Chapter.Abstracts;
+using Readio.DataAccess.Chapter.Concretes;
 using Readio.DataAccess.Comment.Abstracts;
 using Readio.DataAccess.Comment.Concretes;
 using Readio.DataAccess.Contexts;
@@ -51,6 +53,7 @@ public static class RepositoryDependencies
         services.AddScoped<IGenreRepository, GenreRepository>();
         services.AddScoped<IMemberRepository, MemberRepository>();
         services.AddScoped<ICommentRepository,CommentRepository>();
+        services.AddScoped<IChapterRepository, ChapterRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
